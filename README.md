@@ -34,3 +34,9 @@ The result is this one:]
 ![Preview](https://cdn.discordapp.com/attachments/758764113807147053/886089786308300861/unknown.png "Preview")
 
 I created these controls on the screen too so I could test and control the roll of the dice.
+
+**Original Repo of resources:** https://github.com/uheartbeast/youtube-tutorials/blob/master/Action%20RPG/Action%20RPG%20Resources.zip
+
+**Movement 2D tutorial from:** [HeartBeast Youtube Channel](http://https://www.youtube.com/watch?v=mAbG8Oi-SvQ&list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a "HeartBeast Channel")
+
+**He have's a course to:** https://www.heartgamedev.com/1-bit-godot-course-youtube
