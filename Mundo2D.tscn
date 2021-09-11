@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Action RPG Resources/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Action RPG Resources/World/Arbusto.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Action RPG Resources/World/Controls.tscn" type="PackedScene" id=3]
+
+[node name="Mundo2D" type="Node2D"]
+
+[node name="Limites" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limites"]
+polygon = PoolVector2Array( 0.137527, -0.595463, 319.75, 0.818752, 318.336, 179.717, 0.137527, 179.717, 0.137527, 84.2574, -26.7325, 83.5503, -23.9041, 210.122, 355.812, 213.658, 355.105, -18.9802, -23.9041, -16.8589, -26.7325, 82.8432, 0.844635, 83.5503 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Arbusto" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 165.601, 92.7426 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 87.1117, 65.1655 )
+
+[node name="Controls" parent="." instance=ExtResource( 3 )]
+player = NodePath("../YSort/Player")

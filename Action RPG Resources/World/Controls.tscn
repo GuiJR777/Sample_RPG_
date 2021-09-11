@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Action RPG Resources/UI/flatLight23.png" type="Texture" id=1]
+[ext_resource path="res://Action RPG Resources/UI/flatLight22.png" type="Texture" id=2]
+[ext_resource path="res://Action RPG Resources/World/Controls.gd" type="Script" id=3]
+
+[node name="Controls" type="Control"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogsCheck" type="CheckBox" parent="."]
+margin_left = 293.0
+margin_top = 77.5
+margin_right = 317.0
+margin_bottom = 101.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logs" type="Label" parent="."]
+margin_left = 260.0
+margin_top = 87.0
+margin_right = 326.0
+margin_bottom = 101.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Dice Logs:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceNameCheck" type="CheckBox" parent="."]
+margin_left = 292.5
+margin_top = 99.0
+margin_right = 316.5
+margin_bottom = 123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceName" type="Label" parent="."]
+margin_left = 237.0
+margin_top = 107.0
+margin_right = 349.0
+margin_bottom = 121.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Show Dice Name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLeft" type="Button" parent="."]
+margin_left = 217.5
+margin_top = 152.0
+margin_right = 309.5
+margin_bottom = 238.0
+rect_scale = Vector2( 0.25, 0.25 )
+icon = ExtResource( 2 )
+
+[node name="ButtonRight" type="Button" parent="."]
+margin_left = 289.5
+margin_top = 152.0
+margin_right = 381.5
+margin_bottom = 238.0
+rect_scale = Vector2( 0.25, 0.25 )
+icon = ExtResource( 1 )
+
+[node name="DiceType" type="Label" parent="."]
+margin_left = 249.0
+margin_top = 158.5
+margin_right = 315.0
+margin_bottom = 172.5
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Normal"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FacesDice" type="LineEdit" parent="."]
+margin_left = 282.5
+margin_top = 44.5
+margin_right = 347.5
+margin_bottom = 68.5
+rect_scale = Vector2( 0.5, 0.5 )
+align = 1
+placeholder_text = "faces"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Modifier" type="LineEdit" parent="."]
+margin_left = 282.5
+margin_top = 26.5
+margin_right = 347.5
+margin_bottom = 50.5
+rect_scale = Vector2( 0.5, 0.5 )
+align = 1
+placeholder_text = "modifier"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmountDices" type="LineEdit" parent="."]
+margin_left = 282.5
+margin_top = 63.5
+margin_right = 347.5
+margin_bottom = 87.5
+rect_scale = Vector2( 0.5, 0.5 )
+align = 1
+placeholder_text = "amount"
+
+[connection signal="pressed" from="ButtonLeft" to="." method="_on_ButtonLeft_pressed"]
+[connection signal="pressed" from="ButtonRight" to="." method="_on_ButtonRight_pressed"]
