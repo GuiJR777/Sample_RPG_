@@ -12,6 +12,8 @@ var colors = {
 	"blue" : Color(0, 0, 0.55, 1 ),
 	"red" : Color(0.55, 0, 0, 1 ),
 	"green" : Color(0, 0.55, 0, 1),
+	"yellow" : Color(1, 1, 0, 1 ),
+	"orange" : Color(1, 0.55, 0, 1 ),
 }
 
 func sum(result_list, modifier):
@@ -23,7 +25,7 @@ func sum(result_list, modifier):
 	return result
 
 func normal(result_list, face):
-	return ["blue", result_list]
+	return ["yellow", result_list]
 
 func vantage(result_list, face):
 	result_list.append(int(rand_range(1, face)))
@@ -35,7 +37,7 @@ func vantage(result_list, face):
 	if debug_log:
 		print('Result list without min ' + str(result_list))
 	
-	return ["green", result_list]
+	return ["blue", result_list]
 	
 func unvantage(result_list, face):
 	result_list.append(int(rand_range(1, face)))
@@ -46,7 +48,7 @@ func unvantage(result_list, face):
 	if debug_log:
 		print('Result list without max ' + str(result_list))
 	
-	return ["red", result_list]
+	return ["orange", result_list]
 	
 func rolling_type(type, result_list, face):
 	if type == "vantage":
@@ -69,7 +71,8 @@ func show(value: int, color: String, face: int):
 	yield(get_tree().create_timer(show_time), "timeout")
 	self.visible = false
 	
-func roll(face: int= 20, amount: int= 1, type: String= "normal", modifier: int = 0):
+func roll(
+	face: int= 20, amount: int= 1, type: String= "normal", modifier: int = 0, show :bool=true):
 	if debug_log:
 		print(
 			"Rolling a "+str(amount)+"D"+str(face)+"+"+str(modifier)+
@@ -85,7 +88,32 @@ func roll(face: int= 20, amount: int= 1, type: String= "normal", modifier: int =
 	var result = sum(result_list, modifier)
 	if debug_log:
 		print('Total ' + str(result-modifier)+" + "+str(modifier))
-	show(result, color, face)
+	if show:
+		show(result, color, face)
 	
 	return result
 	
+func test(
+	mid_value: int, face: int= 20, amount: int= 1, type: String= "normal", 
+	modifier: int = 0, show :bool=true):
+	var dice_result = roll(face, amount, type, modifier, false)
+	
+	if dice_result >= mid_value:
+			show(dice_result, "green", face)
+			return true
+	show(dice_result, "red", face)
+	return false
+	
+func test_with_percentage(
+	dificulty: float= 50.0, face: int= 20, amount: int= 1, type: String= "normal", 
+	modifier: int = 0, show :bool=true):
+		var max_value = face * amount
+		var mid_value = (dificulty/100) * max_value
+		var dice_result = roll(face, amount, type, modifier, false)
+		
+		if dice_result >= mid_value:
+			show(dice_result, "green", face)
+			return true
+		show(dice_result, "red", face)
+		return false
+		
